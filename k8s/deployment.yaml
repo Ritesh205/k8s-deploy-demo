@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-deploy-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k8s-deploy-demo
+  template:
+    metadata:
+      labels:
+        app: k8s-deploy-demo
+    spec:
+      containers:
+      - name: k8s-deploy-demo
+        image: k8s-deploy-demo:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: "${SPRING_PROFILE}"
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "1Gi"
+            cpu: "500m"

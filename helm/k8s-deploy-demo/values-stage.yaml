@@ -1,0 +1,22 @@
+# Staging environment values
+environment: stage
+replicaCount: 1
+
+image:
+  tag: latest
+
+service:
+  nodePort: 30081
+
+resources:
+  requests:
+    cpu: 500m
+    memory: 1Gi
+  limits:
+    cpu: 1000m
+    memory: 2Gi
+
+springProfile: stage
+
+configMap:
+  LOG_LEVEL: INFO
