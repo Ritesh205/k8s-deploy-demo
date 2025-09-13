@@ -3,7 +3,7 @@ environment: prod
 replicaCount: 1
 
 image:
-  tag: latest
+  tag: "sha-<commit-sha>"
 
 service:
   nodePort: 30082

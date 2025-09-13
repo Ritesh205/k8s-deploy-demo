@@ -4,8 +4,8 @@ fullnameOverride: ""
 
 image:
   repository: ghcr.io/ritesh205/k8s-deploy-demo
-  tag: "latest"
-  pullPolicy: Always
+  tag: ""
+  pullPolicy: IfNotPresent
 
 service:
   type: NodePort
