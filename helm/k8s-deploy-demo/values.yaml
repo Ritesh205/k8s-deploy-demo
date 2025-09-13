@@ -3,8 +3,9 @@ nameOverride: ""
 fullnameOverride: ""
 
 image:
-  repository: k8s-deploy-demo
-  pullPolicy: Never
+  repository: ghcr.io/ritesh205/k8s-deploy-demo
+  tag: "latest"
+  pullPolicy: Always
 
 service:
   type: NodePort
