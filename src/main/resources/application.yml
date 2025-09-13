@@ -3,4 +3,4 @@ spring:
         name: k8s-deploy-demo
 
 app:
-    description: This is a demo DEV application to showcase Kubernetes deployment with Spring Boot
+    description: This is a demo DEV application to showcase Kubernetes deployment with Spring Boot using Github Actions and ArgoCD.
