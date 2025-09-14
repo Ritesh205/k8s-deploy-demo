@@ -3,7 +3,7 @@ environment: dev
 replicaCount: 1
 
 image:
-  tag: "sha-239e219a1cfceb505584a859bc24d8ddbc804b33"
+  tag: "sha-4c890ed51d22dfe7534d6d291a8e8c154c6ba04d"
 
 service:
   nodePort: 30080
