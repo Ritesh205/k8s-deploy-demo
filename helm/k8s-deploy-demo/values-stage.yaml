@@ -3,7 +3,7 @@ environment: stage
 replicaCount: 1
 
 image:
-  tag: "sha-b780a9a50532aed9a19cf85a87ec8d08150d4a7b"
+  tag: "sha-a12a5cd3738a16b3a88aaa49ba764279a3739964"
 
 service:
   nodePort: 30081
