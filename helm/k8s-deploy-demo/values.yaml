@@ -11,17 +11,42 @@ service:
   type: NodePort
   port: 8080
 
+# Resource configuration
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 200m
+    memory: 256Mi
+
 # Health check probes
 livenessProbe:
+  httpGet:
+    path: /actuator/health
+    port: 8080
   initialDelaySeconds: 60
   periodSeconds: 10
   failureThreshold: 3
+  timeoutSeconds: 5
 
 readinessProbe:
+  httpGet:
+    path: /actuator/health
+    port: 8080
   initialDelaySeconds: 30
   periodSeconds: 10
   failureThreshold: 3
+  timeoutSeconds: 5
 
 # Default autoscaling configuration
 autoscaling:
   enabled: false
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 80
+
+# Pod disruption budget
+podDisruptionBudget:
+  enabled: true
+  minAvailable: 1

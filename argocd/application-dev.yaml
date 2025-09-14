@@ -7,12 +7,15 @@ spec:
   project: default
   source:
     repoURL: https://github.com/Ritesh205/k8s-deploy-demo.git
-    targetRevision: deploy                    # 👈 use deploy branch for values
+    targetRevision: deploy
     path: helm/k8s-deploy-demo
     helm:
       valueFiles:
         - values.yaml
         - values-dev.yaml
+      parameters:
+        - name: image.tag
+          value: ""  # This will be overridden by values file
   destination:
     server: https://kubernetes.default.svc
     namespace: dev
@@ -22,3 +25,13 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - ServerSideApply=true
+  ignoreDifferences:
+    - group: apps
+      kind: Deployment
+      jsonPointers:
+        - /spec/replicas
+    - group: ""
+      kind: Service
+      jsonPointers:
+        - /spec/clusterIP
