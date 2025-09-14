@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/Ritesh205/k8s-deploy-demo.git
-    targetRevision: HEAD
+    targetRevision: deploy                    # 👈 use deploy branch for values
     path: helm/k8s-deploy-demo
     helm:
       valueFiles:

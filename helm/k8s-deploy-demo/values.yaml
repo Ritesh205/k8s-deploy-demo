@@ -1,0 +1,27 @@
+# Common values for all environments
+nameOverride: ""
+fullnameOverride: ""
+
+image:
+  repository: ghcr.io/ritesh205/k8s-deploy-demo
+  tag: ""
+  pullPolicy: IfNotPresent
+
+service:
+  type: NodePort
+  port: 8080
+
+# Health check probes
+livenessProbe:
+  initialDelaySeconds: 60
+  periodSeconds: 10
+  failureThreshold: 3
+
+readinessProbe:
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  failureThreshold: 3
+
+# Default autoscaling configuration
+autoscaling:
+  enabled: false
