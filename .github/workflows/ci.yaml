@@ -53,6 +53,8 @@ jobs:
     needs: build
     permissions:
       contents: write
+    env:
+      TAG: sha-${{ github.sha }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -61,6 +63,9 @@ jobs:
       - name: Update Helm values for dev
         run: |
           sed -i "s|tag:.*|tag: \"${{ env.TAG }}\"|" ./helm/k8s-deploy-demo/values-dev.yaml
+          echo "Updated values-dev.yaml:"
+          cat ./helm/k8s-deploy-demo/values-dev.yaml
+          
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add ./helm/k8s-deploy-demo/values-dev.yaml
@@ -72,6 +77,8 @@ jobs:
     needs: deploy-dev
     permissions:
       contents: write
+    env:
+      TAG: sha-${{ github.sha }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -80,6 +87,9 @@ jobs:
       - name: Update Helm values for stage
         run: |
           sed -i "s|tag:.*|tag: \"${{ env.TAG }}\"|" ./helm/k8s-deploy-demo/values-stage.yaml
+          echo "Updated values-stage.yaml:"
+          cat ./helm/k8s-deploy-demo/values-stage.yaml
+          
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add ./helm/k8s-deploy-demo/values-stage.yaml
@@ -91,6 +101,8 @@ jobs:
     needs: deploy-stage
     permissions:
       contents: write
+    env:
+      TAG: sha-${{ github.sha }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -99,6 +111,9 @@ jobs:
       - name: Update Helm values for prod
         run: |
           sed -i "s|tag:.*|tag: \"${{ env.TAG }}\"|" ./helm/k8s-deploy-demo/values-prod.yaml
+          echo "Updated values-prod.yaml:"
+          cat ./helm/k8s-deploy-demo/values-prod.yaml
+          
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add ./helm/k8s-deploy-demo/values-prod.yaml
