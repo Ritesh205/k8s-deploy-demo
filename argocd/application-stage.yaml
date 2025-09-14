@@ -13,6 +13,9 @@ spec:
       valueFiles:
         - values.yaml
         - values-stage.yaml
+      parameters:
+        - name: image.tag
+          value: ""  # This will be overridden by values file
   destination:
     server: https://kubernetes.default.svc
     namespace: stage
@@ -22,3 +25,13 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - ServerSideApply=true
+  ignoreDifferences:
+    - group: apps
+      kind: Deployment
+      jsonPointers:
+        - /spec/replicas
+    - group: ""
+      kind: Service
+      jsonPointers:
+        - /spec/clusterIP
