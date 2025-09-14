@@ -13,9 +13,6 @@ spec:
       valueFiles:
         - values.yaml
         - values-stage.yaml
-      parameters:
-        - name: image.tag
-          value: ""  # This will be overridden by values file
   destination:
     server: https://kubernetes.default.svc
     namespace: stage
