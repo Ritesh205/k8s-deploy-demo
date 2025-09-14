@@ -24,11 +24,7 @@ spec:
     spec:
       containers:
         - name: {{ .Chart.Name }}
-          {{- if .Values.image.tag }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          {{- else }}
-          image: "{{ .Values.image.repository }}:latest"
-          {{- end }}
+          image: "{{ .Values.image.repository }}:{{ required "A valid image.tag is required" .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http

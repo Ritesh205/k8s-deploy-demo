@@ -4,8 +4,9 @@ fullnameOverride: ""
 
 image:
   repository: ghcr.io/ritesh205/k8s-deploy-demo
+  # tag must be overridden in environment-specific values files
   tag: ""
-  pullPolicy: IfNotPresent
+  pullPolicy: Always  # Changed to Always to ensure we always pull the latest version of a tag
 
 service:
   type: NodePort
