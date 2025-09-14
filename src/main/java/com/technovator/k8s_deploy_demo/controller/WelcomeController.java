@@ -15,6 +15,7 @@ public class WelcomeController {
 
     @GetMapping("/welcome")
     public String welcome() {
-        return appConfig.getDescription();
+        String description = appConfig.getDescription();
+        return "Welcome to K8s Deploy Demo Application!<br/>" + description;
     }
 }
