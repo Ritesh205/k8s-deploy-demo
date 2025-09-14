@@ -77,3 +77,6 @@ The application uses GitOps with ArgoCD for deployments:
 - [ ] Implement canary deployments
 - [ ] Add automated testing in staging
 - [ ] Implement service mesh
+
+## Deployment
+Application deployed using ArgoCD
