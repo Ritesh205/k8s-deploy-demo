@@ -3,7 +3,7 @@ environment: prod
 replicaCount: 1
 
 image:
-  tag: "sha-a12a5cd3738a16b3a88aaa49ba764279a3739964"
+  tag: "sha-7aa45626b0030b036cd5c343ebe4854f228af296"
 
 service:
   nodePort: 30082
