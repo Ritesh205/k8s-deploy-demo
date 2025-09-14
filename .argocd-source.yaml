@@ -1,0 +1,8 @@
+helm:
+  version: v3
+  parameters:
+    - name: image.tag
+      value: ""
+  valueFiles:
+    - values.yaml
+    - values-${ARGOCD_ENV}.yaml
