@@ -80,3 +80,4 @@ The application uses GitOps with ArgoCD for deployments:
 
 ## Deployment
 Application deployed using ArgoCD
+# Last updated: Sun Sep 14 15:07:15 IST 2025
